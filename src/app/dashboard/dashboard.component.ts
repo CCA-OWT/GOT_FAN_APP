@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { AuthenticationService } from '../authentication.service';
+import { ResourceService } from '../resource.service';
 import { Router } from '@angular/router';
+import { RESOURCES } from '../resources';
 
 @Component({
   selector: 'dashboard',
@@ -9,4 +10,14 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent {
 
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+  }
+
+  resources = RESOURCES;
+
+  navigate(resource: string): void {
+    this.router.navigateByUrl("/"+resource)
+  }
 }

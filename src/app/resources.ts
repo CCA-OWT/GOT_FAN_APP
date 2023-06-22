@@ -1,0 +1,1 @@
+export const RESOURCES: string[] = ["books","characters","houses"];

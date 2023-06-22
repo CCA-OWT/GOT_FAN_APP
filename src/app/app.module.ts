@@ -5,6 +5,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BooksComponent } from './books/books.component';
+import { CharactersComponent } from './characters/characters.component';
+import { HousesComponent } from './houses/houses.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +19,8 @@ import { HeaderComponent } from './header/header.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

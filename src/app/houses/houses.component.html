@@ -1,0 +1,11 @@
+<div class="houses">
+    <button type="button" (click)="goBack()">Retour</button>
+    <h1>List of houses</h1>
+    <ul class="houseslist">
+        <li *ngFor="let house of houses">
+            <div routerLink="{{getHouseId(house)}}">
+                <span class="name">{{house.name | titlecase}}</span>
+            </div>
+        </li>
+      </ul>
+</div>

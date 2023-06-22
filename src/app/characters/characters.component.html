@@ -1,0 +1,11 @@
+<div class="characters">
+    <button type="button" (click)="goBack()">Retour</button>
+    <h1>List of characters</h1>
+    <ul class="characterslist">
+        <li *ngFor="let character of characters">
+            <div routerLink="{{getCharacterId(character)}}">
+                <span class="name">{{character.name | titlecase}}</span>
+            </div>
+        </li>
+      </ul>
+</div>

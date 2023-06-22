@@ -7,5 +7,5 @@
         />
         <h3>Game Of Thrones Fan App</h3>
     </div>
-    <button (click)="logout()">Log out</button>
+    <button *ngIf="isUserLoggedIn()" (click)="logout()">Log out</button>
 </div>

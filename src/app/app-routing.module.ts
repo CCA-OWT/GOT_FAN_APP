@@ -11,6 +11,26 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
     canActivate: [authenticationGuard]
+  },
+  {
+    path: 'books',
+    loadChildren: () => import('./books/books.module').then(m => m.BooksModule),
+    canActivate: [authenticationGuard]
+  },
+  {
+    path: 'characters',
+    loadChildren: () => import('./characters/characters.module').then(m => m.CharactersModule),
+    canActivate: [authenticationGuard]
+  },
+  {
+    path: 'houses',
+    loadChildren: () => import('./houses/houses.module').then(m => m.HousesModule),
+    canActivate: [authenticationGuard]
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    canActivate: [authenticationGuard]
   }
 ];
 

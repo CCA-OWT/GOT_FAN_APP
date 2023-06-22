@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    this.authenticationService.logout()
   }
 
   login(): void {

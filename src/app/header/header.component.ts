@@ -19,5 +19,9 @@ export class HeaderComponent {
     this.authService.logout();
     this.router.navigateByUrl("/login");
   }
+
+  isUserLoggedIn(): boolean {
+    return this.authService.isUserLoggedIn()
+  }
   
 }

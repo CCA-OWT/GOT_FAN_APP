@@ -1,0 +1,11 @@
+<div class="books">
+    <button type="button" (click)="goBack()">Retour</button>
+    <h1>List of books</h1>
+    <ul class="bookslist">
+        <li *ngFor="let book of books">
+            <div routerLink="{{getBookId(book)}}">
+                <span class="name">{{book.name | titlecase}}</span>
+            </div>
+        </li>
+      </ul>
+</div>
