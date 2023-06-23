@@ -1,31 +1,41 @@
-.toolbar {
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 60px;
+    height: 10%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #507580;
     color: #e5e5e5;
-    font-weight: 600;
 }
 
-h3 {
-    color: #e5e5e5;
+.header span {
+    margin-right: 20px;
 }
 
-.toolbar button {
-    margin-right: 10px;
+.header span:hover {
+    color: #252525;
+    cursor: pointer;
 }
 
 .logo-title {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px;
+    gap: 20px;
+    padding-left: 20px;
     color: #e5e5e5;
+}
+
+.logo-title:hover {
+    color: #252525;
+    cursor: pointer;
 }
 
 /*

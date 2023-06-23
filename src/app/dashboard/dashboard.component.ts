@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ResourceService } from '../resource.service';
 import { Router } from '@angular/router';
 import { RESOURCES } from '../resources';
 

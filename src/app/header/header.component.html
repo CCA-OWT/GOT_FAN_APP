@@ -1,11 +1,11 @@
-<div class="toolbar" role="banner">
-    <div class="logo-title">
+<div class="header">
+    <div class="logo-title" routerLink="">
         <img
-        height="40"
-        alt="Throne from Game Of Thrones"
+        height="80"
+        alt="Game Of Thrones"
         src="https://icon-library.com/images/iron-throne-icon/iron-throne-icon-25.jpg"
         />
-        <h3>Game Of Thrones Fan App</h3>
+        <h2>Game Of Thrones Fan App</h2>
     </div>
-    <button *ngIf="isUserLoggedIn()" (click)="logout()">Log out</button>
+    <span *ngIf="isUserLoggedIn()" (click)="logout()">Log out</span>
 </div>

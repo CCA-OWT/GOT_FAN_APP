@@ -1,4 +1,25 @@
 <div class="book" *ngIf="book">
     <button type="button" (click)="goBack()">Retour</button>
-    <p>{{book.name}}</p>
+    <p>{{book.name | titlecase}}</p>
+    <p>{{book.isbn | titlecase}}</p>
+    <ul class="authorslist">
+        <li *ngFor="let author of book.authors">
+            <span class="name">{{author | titlecase}}</span>
+        </li>
+    </ul>
+    <p>{{book.numberOfPages}}</p>
+    <p>{{book.publisher | titlecase}}</p>
+    <p>{{book.country | titlecase}}</p>
+    <p>{{book.mediaType | titlecase}}</p>
+    <p>{{book.released | titlecase}}</p>
+    <ul class="characterslist">
+        <li *ngFor="let character of book.characters">
+            <span class="name">{{character | titlecase}}</span>
+        </li>
+    </ul>
+    <ul class="povcharacterslist">
+        <li *ngFor="let povCharacter of book.povCharacters">
+            <span class="name">{{povCharacter | titlecase}}</span>
+        </li>
+    </ul>
 </div>

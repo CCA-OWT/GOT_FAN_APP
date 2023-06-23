@@ -1,10 +1,45 @@
 <div class="books">
-    <button type="button" (click)="goBack()">Retour</button>
-    <h1>List of books</h1>
+    <div class="navTitle">
+        <img
+            (click)="goBack()"
+            height="30"
+            alt="Back arrow"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Back_Arrow.svg/2048px-Back_Arrow.svg.png"
+            />
+        <h1>List of books</h1>
+    </div>
     <ul class="bookslist">
         <li *ngFor="let book of books">
-            <div routerLink="{{getBookId(book)}}">
-                <span class="name">{{book.name | titlecase}}</span>
+            <div class="book" routerLink="{{getBookId(book)}}">
+                <div class="bookinfo">
+                    <span><b>Name :</b> {{book.name | titlecase}}</span>
+                </div>
+                <div class="bookinfo">
+                    <span><b>ISBN :</b> {{book.isbn | titlecase}}</span>
+                </div>
+                <div class="authorslist">
+                    <span class="authors"><b>Authors :</b></span>
+                    <ul>
+                        <li *ngFor="let author of book.authors">
+                            <span class="author">{{author | titlecase}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bookinfo">
+                    <span><b>Publisher :</b> {{book.publisher | titlecase}}</span>
+                </div>
+                <div class="bookinfo">
+                    <span><b>Media type :</b> {{book.mediaType | titlecase}}</span>
+                </div>
+                <div class="bookinfo">
+                    <span><b>Country :</b> {{book.country | titlecase}}</span>
+                </div>
+                <div class="bookinfo">
+                    <span><b>Released :</b> {{book.released | titlecase}}</span>
+                </div>
+                <div class="bookinfo">
+                    <span><b>Number of pages :</b> {{book.numberOfPages}}</span>
+                </div>
             </div>
         </li>
       </ul>

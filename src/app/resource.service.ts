@@ -70,23 +70,4 @@ export class ResourceService {
       return of(result as T);
     };
   }
-
-  //https://anapioficeandfire.com/
-
-  //Use case 0 ✅
-    //Create the general layout
-
-  //Use case 1 ✅
-    //The user opens your app and gets a login screen. He has to login. After a successful login he is navigated to the overview page (UC2)
-    //(Bonus: If the user is logged in, he can refresh the browser and has not to login again)
-    //(Note: To simplify this task, handle the authentication locally in your app and not consume any external services like auth0)
-
-  //Use case 2
-    //The user has a list of Game of thrones resources, for each resource he can show a list where he can filter elements of the list
-
-  //Use case 3
-    //The list(s) in UC2 should be extended. Add a search element, which searches anything in your resources
-
-  //Use case 4
-    //The user clicks on a resource item and gets a detail view over it.   
 }
