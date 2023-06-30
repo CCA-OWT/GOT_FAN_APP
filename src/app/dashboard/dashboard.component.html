@@ -1,0 +1,10 @@
+<div class="dashboard">
+    <h1>List of resources</h1>
+    <ul class="resources">
+        <li *ngFor="let resource of resources">
+            <div class="resource" routerLink="{{resource}}">
+                <span>{{resource | titlecase}}</span>
+            </div>
+        </li>
+      </ul>
+</div>

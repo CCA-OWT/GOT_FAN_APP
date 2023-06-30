@@ -1,0 +1,59 @@
+<div class="navTitle">
+    <img
+        (click)="goBack()"
+        height="30"
+        alt="Back arrow"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Back_Arrow.svg/2048px-Back_Arrow.svg.png"
+        />
+    <h1>List of characters</h1>
+    <input #searchBox type="search" placeholder="Search..." (input)="searchTerm(searchBox.value)"/>
+</div>
+<div class="characters">
+    <ul class="characterslist">
+        <li *ngFor="let character of displayCharacters()">
+            <div class="character" routerLink="{{getCharacterId(character)}}">
+                <div class="characterinfo" *ngIf="character.name != ''">
+                    <b>Name : </b><span>{{character.name}}</span>
+                </div>
+                <div class="notclickablelist" *ngIf="character.aliases.length != 0 && character.aliases[0] != ''">
+                    <b class="notclickable">Aliases :</b>
+                    <ul>
+                        <li class="notclickableitem" *ngFor="let alias of character.aliases">
+                            <span>{{alias}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="notclickablelist" *ngIf="character.titles.length != 0 && character.titles[0] != ''">
+                    <b class="notclickable">Titles :</b>
+                    <ul>
+                        <li class="notclickableitem" *ngFor="let title of character.titles">
+                            <span>{{title}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="characterinfo" *ngIf="character.gender != ''">
+                    <b>Gender : </b><span>{{character.gender}}</span>
+                </div>
+                <div class="characterinfo" *ngIf="character.culture != ''">
+                    <b>Culture : </b><span>{{character.culture}}</span>
+                </div>
+                <div class="notclickablelist" *ngIf="character.tvSeries.length != 0 && character.tvSeries[0] != ''">
+                    <b class="notclickable">TV series :</b>
+                    <ul>
+                        <li class="notclickableitem" *ngFor="let tvSerie of character.tvSeries">
+                            <span>{{tvSerie}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="notclickablelist" *ngIf="character.playedBy.length != 0 && character.playedBy[0] != ''">
+                    <b class="notclickable">Played by :</b>
+                    <ul>
+                        <li class="notclickableitem" *ngFor="let playedBy of character.playedBy">
+                            <span>{{playedBy}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+      </ul>
+</div>

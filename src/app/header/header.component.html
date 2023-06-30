@@ -1,0 +1,11 @@
+<div class="header">
+    <div class="logo-title" routerLink="">
+        <img
+        height="80"
+        alt="Game Of Thrones"
+        src="https://icon-library.com/images/iron-throne-icon/iron-throne-icon-25.jpg"
+        />
+        <h2>Game Of Thrones Fan App</h2>
+    </div>
+    <span *ngIf="isUserLoggedIn()" (click)="logout()">Log out</span>
+</div>

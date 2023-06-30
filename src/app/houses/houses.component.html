@@ -1,0 +1,57 @@
+<div class="navTitle">
+    <img
+        (click)="goBack()"
+        height="30"
+        alt="Back arrow"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Back_Arrow.svg/2048px-Back_Arrow.svg.png"
+        />
+    <h1>List of houses</h1>
+    <input #searchBox type="search" placeholder="Search..." (input)="searchTerm(searchBox.value)"/>
+</div>
+<div class="houses">
+    <ul class="houseslist">
+        <li *ngFor="let house of displayHouses()">
+            <div class="house" routerLink="{{getHouseId(house)}}">
+                <div class="houseinfo" *ngIf="house.name != ''">
+                    <b>Name : </b><span>{{house.name}}</span>
+                </div>
+                <div class="notclickablelist" *ngIf="house.titles.length != 0 && house.titles[0] != ''">
+                    <b class="notclickable">Titles :</b>
+                    <ul>
+                        <li class="notclickableitem" *ngFor="let title of house.titles">
+                            <span>{{title}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="houseinfo" *ngIf="house.words != ''">
+                    <b>Words : </b><span>{{house.words}}</span>
+                </div>
+                <div class="houseinfo" *ngIf="house.coatOfArms != ''">
+                    <b>Coat Of Arms : </b><span>{{house.coatOfArms}}</span>
+                </div>
+                <div class="houseinfo" *ngIf="house.region != ''">
+                    <b>Region : </b><span>{{house.region}}</span>
+                </div>
+                <div class="notclickablelist" *ngIf="house.seats.length != 0 && house.seats[0] != ''">
+                    <b class="notclickable">Seats :</b>
+                    <ul>
+                        <li class="notclickableitem" *ngFor="let seats of house.seats">
+                            <span>{{seats}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="houseinfo" *ngIf="house.founded != ''">
+                    <b>Founded : </b><span>{{house.founded}}</span>
+                </div>
+                <div class="notclickablelist" *ngIf="house.ancestralWeapons.length != 0 && house.ancestralWeapons[0] != ''">
+                    <b class="notclickable">Ancestral Weapons :</b>
+                    <ul>
+                        <li class="notclickableitem" *ngFor="let ancestralWeapons of house.ancestralWeapons">
+                            <span>{{ancestralWeapons}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+      </ul>
+</div>

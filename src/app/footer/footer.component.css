@@ -1,0 +1,40 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 20px;
+    height: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #507580;
+    color: #f0f0f0;
+    z-index: 3;
+    box-shadow: 0 -10px 20px 0 rgba(64,64,64,.5);
+}
+
+.left {
+    width: 30%;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.middle {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.right {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*
+dark: #404040;
+light: #f0f0f0;
+blue: #507580;
+*/
