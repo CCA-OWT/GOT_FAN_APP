@@ -1,4 +1,89 @@
-<div class="house" *ngIf="house">
-    <button type="button" (click)="goBack()">Retour</button>
-    <p>{{house.name}}</p>
+<div class="navTitle">
+    <img
+        (click)="goBack()"
+        height="30"
+        alt="Back arrow"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Back_Arrow.svg/2048px-Back_Arrow.svg.png"
+        />
+    <h1>House details</h1>
+</div>
+<div class="houseDetails">
+    <div class="house" *ngIf="house; else noHouse">
+        <div class="houseinfo" *ngIf="house.name != ''">
+            <b>Name : </b><span>{{house.name}}</span>
+        </div>
+        <div class="notclickablelist" *ngIf="house.titles.length != 0 && house.titles[0] != ''">
+            <b class="notclickable">Titles :</b>
+            <ul>
+                <li class="notclickableitem" *ngFor="let title of house.titles">
+                    <span>{{title}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="houseinfo" *ngIf="house.words != ''">
+            <b>Words : </b><span>{{house.words}}</span>
+        </div>
+        <div class="houseinfo" *ngIf="house.coatOfArms != ''">
+            <b>Coat Of Arms : </b><span>{{house.coatOfArms}}</span>
+        </div>
+        <div class="houseinfo" *ngIf="house.region != ''">
+            <b>Region : </b><span>{{house.region}}</span>
+        </div>
+        <div class="notclickablelist" *ngIf="house.seats.length != 0 && house.seats[0] != ''">
+            <b class="notclickable">Seats :</b>
+            <ul>
+                <li class="notclickableitem" *ngFor="let seats of house.seats">
+                    <span>{{seats}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="houseinfo" *ngIf="house.overlord != ''">
+            <b>Overlord : </b><span class="clickableitem" routerLink="{{getHouseLink(house.overlord)}}">{{getHouseName(house.overlord)}}</span>
+        </div>
+        <div class="clickablelist" *ngIf="house.cadetBranches.length != 0 && house.cadetBranches[0] != ''">
+            <b class="clickable">Cadet Branches :</b>
+            <ul>
+                <li class="clickableitem" *ngFor="let cadetBranches of house.cadetBranches">
+                    <span routerLink="{{getHouseLink(cadetBranches)}}">{{getHouseName(cadetBranches)}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="houseinfo" *ngIf="house.currentLord != ''">
+            <b>Current Lord : </b><span class="clickableitem" routerLink="{{getCharacterLink(house.currentLord)}}">{{getCharacterName(house.currentLord)}}</span>
+        </div>
+        <div class="houseinfo" *ngIf="house.heir != ''">
+            <b>Heir : </b><span class="clickableitem" routerLink="{{getCharacterLink(house.heir)}}">{{getCharacterName(house.heir)}}</span>
+        </div>
+        <div class="clickablelist" *ngIf="house.swornMembers.length != 0 && house.swornMembers[0] != ''">
+            <b class="clickable">Sworn Members :</b>
+            <ul>
+                <li class="clickableitem" *ngFor="let swornMembers of house.swornMembers">
+                    <span routerLink="{{getCharacterLink(swornMembers)}}">{{getCharacterName(swornMembers)}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="houseinfo" *ngIf="house.founded != ''">
+            <b>Founded : </b><span>{{house.founded}}</span>
+        </div>
+        <div class="houseinfo" *ngIf="house.founder != ''">
+            <b>Founder : </b><span class="clickableitem" routerLink="{{getCharacterLink(house.founder)}}">{{getCharacterName(house.founder)}}</span>
+        </div>
+        <div class="houseinfo" *ngIf="house.diedOut != ''">
+            <b>Died Out : </b><span>{{house.diedOut}}</span>
+        </div>
+        <div class="notclickablelist" *ngIf="house.ancestralWeapons.length != 0 && house.ancestralWeapons[0] != ''">
+            <b class="notclickable">Ancestral Weapons :</b>
+            <ul>
+                <li class="notclickableitem" *ngFor="let ancestralWeapons of house.ancestralWeapons">
+                    <span>{{ancestralWeapons}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <ng-template #noHouse>
+        <div class="noHouse">
+            <br/>
+            <h3>No house found</h3>
+        </div>
+    </ng-template>
 </div>

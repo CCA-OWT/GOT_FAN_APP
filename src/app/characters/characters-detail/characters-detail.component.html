@@ -1,4 +1,99 @@
-<div class="character" *ngIf="character">
-    <button type="button" (click)="goBack()">Retour</button>
-    <p>{{character.name}}</p>
+<div class="navTitle">
+    <img
+        (click)="goBack()"
+        height="30"
+        alt="Back arrow"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Back_Arrow.svg/2048px-Back_Arrow.svg.png"
+        />
+    <h1>Character details</h1>
+</div>
+<div class="characterDetails">
+    <div class="character" *ngIf="character; else noCharacter">
+        <div class="characterinfo" *ngIf="character.name != ''">
+            <b>Name : </b><span>{{character.name}}</span>
+        </div>
+        <div class="notclickablelist" *ngIf="character.aliases.length != 0 && character.aliases[0] != ''">
+            <b class="notclickable">Aliases :</b>
+            <ul>
+                <li class="notclickableitem" *ngFor="let alias of character.aliases">
+                    <span>{{alias}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="notclickablelist" *ngIf="character.titles.length != 0 && character.titles[0] != ''">
+            <b class="notclickable">Titles :</b>
+            <ul>
+                <li class="notclickableitem" *ngFor="let title of character.titles">
+                    <span>{{title}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="characterinfo" *ngIf="character.gender != ''">
+            <b>Gender : </b><span>{{character.gender}}</span>
+        </div>
+        <div class="characterinfo" *ngIf="character.father != ''">
+            <b>Father : </b><span class="clickableitem" routerLink="{{getCharacterLink(character.father)}}">{{getCharacterName(character.father)}}</span>
+        </div>
+        <div class="characterinfo" *ngIf="character.mother != ''">
+            <b>Mother : </b><span class="clickableitem" routerLink="{{getCharacterLink(character.mother)}}">{{getCharacterName(character.mother)}}</span>
+        </div>
+        <div class="characterinfo" *ngIf="character.spouse != ''">
+            <b>Spouse : </b><span class="clickableitem" routerLink="{{getCharacterLink(character.spouse)}}">{{getCharacterName(character.spouse)}}</span>
+        </div>
+        <div class="characterinfo" *ngIf="character.born != ''">
+            <b>Born : </b><span>{{character.born}}</span>
+        </div>
+        <div class="characterinfo" *ngIf="character.died != ''">
+            <b>Died : </b><span>{{character.died}}</span>
+        </div>
+        <div class="characterinfo" *ngIf="character.culture != ''">
+            <b>Culture : </b><span>{{character.culture}}</span>
+        </div>
+        <div class="clickablelist" *ngIf="character.allegiances.length != 0">
+            <b class="clickable">Allegiances :</b>
+            <ul>
+                <li class="clickableitem" *ngFor="let allegiance of character.allegiances">
+                    <span routerLink="{{getHouseLink(allegiance)}}">{{getHouseName(allegiance)}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="clickablelist" *ngIf="character.povBooks.length != 0">
+            <b class="clickable">POV books :</b>
+            <ul>
+                <li class="clickableitem" *ngFor="let povBook of character.povBooks">
+                    <span routerLink="{{getBookLink(povBook)}}">{{getBookName(povBook)}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="clickablelist" *ngIf="character.books.length != 0">
+            <b class="clickable">Books :</b>
+            <ul>
+                <li class="clickableitem" *ngFor="let book of character.books">
+                    <span routerLink="{{getBookLink(book)}}">{{getBookName(book)}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="notclickablelist" *ngIf="character.tvSeries.length != 0 && character.tvSeries[0] != ''">
+            <b class="notclickable">TV series :</b>
+            <ul>
+                <li class="notclickableitem" *ngFor="let tvSerie of character.tvSeries">
+                    <span>{{tvSerie}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="notclickablelist" *ngIf="character.playedBy.length != 0 && character.playedBy[0] != ''">
+            <b class="notclickable">Played by :</b>
+            <ul>
+                <li class="notclickableitem" *ngFor="let playedBy of character.playedBy">
+                    <span>{{playedBy}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <ng-template #noCharacter>
+        <div class="noCharacter">
+            <br/>
+            <h3>No character found</h3>
+        </div>
+    </ng-template>
 </div>

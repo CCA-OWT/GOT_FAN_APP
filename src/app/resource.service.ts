@@ -18,8 +18,8 @@ export class ResourceService {
   private housesApirUrl = this.apiUrl + "houses";
 
   getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(this.booksApirUrl).pipe(
-      tap(_ => console.log('getBooks() successfully')),
+    const url = `${this.booksApirUrl}?page=1&pageSize=50`; // only page 1
+    return this.http.get<Book[]>(url).pipe(
       catchError(this.handleError<Book[]>('getBooks()'))
     );
   }
@@ -27,14 +27,13 @@ export class ResourceService {
   getBook(id: number): Observable<Book> {
     const url = `${this.booksApirUrl}/${id}`;
     return this.http.get<Book>(url).pipe(
-      tap(_ => console.log(`getBook(${id}) successfully`)),
       catchError(this.handleError<Book>(`getBook(${id})`))
     );
   }
 
-  getCharacters(): Observable<Character[]> {
-    return this.http.get<Character[]>(this.charactersApirUrl).pipe(
-      tap(_ => console.log('getCharacter() successfully')),
+  getCharacters(i: number): Observable<Character[]> {
+    const url = `${this.charactersApirUrl}?page=${i}&pageSize=50`; // page 1 -> page 43
+    return this.http.get<Character[]>(url).pipe(
       catchError(this.handleError<Character[]>('getCharacter()'))
     );
   }
@@ -42,14 +41,13 @@ export class ResourceService {
   getCharacter(id: number): Observable<Character> {
     const url = `${this.charactersApirUrl}/${id}`;
     return this.http.get<Character>(url).pipe(
-      tap(_ => console.log(`getCharacter(${id}) successfully`)),
       catchError(this.handleError<Character>(`getCharacter(${id})`))
     );
   }
 
-  getHouses(): Observable<House[]> {
-    return this.http.get<House[]>(this.housesApirUrl).pipe(
-      tap(_ => console.log('getHouses() successfully')),
+  getHouses(i: number): Observable<House[]> {
+    const url = `${this.housesApirUrl}?page=${i}&pageSize=50`; // page 1 -> page 9
+    return this.http.get<House[]>(url).pipe(
       catchError(this.handleError<House[]>('getHouses()'))
     );
   }
@@ -57,7 +55,6 @@ export class ResourceService {
   getHouse(id: number): Observable<House> {
     const url = `${this.housesApirUrl}/${id}`;
     return this.http.get<House>(url).pipe(
-      tap(_ => console.log(`getHouse(${id}) successfully`)),
       catchError(this.handleError<House>(`getHouse(${id})`))
     );
   }

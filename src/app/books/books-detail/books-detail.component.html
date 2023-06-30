@@ -1,25 +1,64 @@
-<div class="book" *ngIf="book">
-    <button type="button" (click)="goBack()">Retour</button>
-    <p>{{book.name | titlecase}}</p>
-    <p>{{book.isbn | titlecase}}</p>
-    <ul class="authorslist">
-        <li *ngFor="let author of book.authors">
-            <span class="name">{{author | titlecase}}</span>
-        </li>
-    </ul>
-    <p>{{book.numberOfPages}}</p>
-    <p>{{book.publisher | titlecase}}</p>
-    <p>{{book.country | titlecase}}</p>
-    <p>{{book.mediaType | titlecase}}</p>
-    <p>{{book.released | titlecase}}</p>
-    <ul class="characterslist">
-        <li *ngFor="let character of book.characters">
-            <span class="name">{{character | titlecase}}</span>
-        </li>
-    </ul>
-    <ul class="povcharacterslist">
-        <li *ngFor="let povCharacter of book.povCharacters">
-            <span class="name">{{povCharacter | titlecase}}</span>
-        </li>
-    </ul>
+<div class="navTitle">
+    <img
+        (click)="goBack()"
+        height="30"
+        alt="Back arrow"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Back_Arrow.svg/2048px-Back_Arrow.svg.png"
+        />
+    <h1>Book details</h1>
+</div>
+<div class="bookDetails">
+    <div class="book" *ngIf="book; else noBook">
+        <div class="bookinfo">
+            <b>Name : </b><span>{{book.name}}</span>
+        </div>
+        <div class="bookinfo">
+            <b>ISBN : </b><span>{{book.isbn}}</span>
+        </div>
+        <div class="notclickablelist">
+            <b class="notclickable">Authors :</b>
+            <ul>
+                <li class="notclickableitem" *ngFor="let author of book.authors">
+                    <span>{{author}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="bookinfo">
+            <b>Publisher : </b><span>{{book.publisher}}</span>
+        </div>
+        <div class="bookinfo">
+            <b>Media type : </b><span>{{book.mediaType}}</span>
+        </div>
+        <div class="bookinfo">
+            <b>Country : </b><span>{{book.country}}</span>
+        </div>
+        <div class="bookinfo">
+            <b>Released : </b><span>{{getDate(book.released)}}</span>
+        </div>
+        <div class="bookinfo">
+            <b>Number of pages : </b><span>{{book.numberOfPages}}</span>
+        </div>
+        <div class="clickablelist" *ngIf="book.povCharacters.length != 0">
+            <b class="clickable">POV characters :</b>
+            <ul>
+                <li class="clickableitem" *ngFor="let povCharacter of book.povCharacters">
+                    <span routerLink="{{getCharacterLink(povCharacter)}}">{{getCharacterName(povCharacter)}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="clickablelist" *ngIf="book.characters.length != 0">
+            <b class="clickable">Characters :</b>
+            <ul>
+                <li class="clickableitem" *ngFor="let character of book.characters">
+                    <span routerLink="{{getCharacterLink(character)}}">{{getCharacterName(character)}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <ng-template #noBook>
+        <div class="noBook">
+            <br/>
+            <h3>No book found</h3>
+        </div>
+    </ng-template>
 </div>

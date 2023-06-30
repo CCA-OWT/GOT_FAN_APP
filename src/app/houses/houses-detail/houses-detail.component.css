@@ -1,23 +1,118 @@
 * {
     margin: 0;
     padding: 0;
-    color: #252525;
+    list-style-type:none;
 }
 
-.house {
+.navTitle {
     position: fixed;
     top: 10%;
+    bottom: 80%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    color: #404040;
+    z-index: 2;
+    box-shadow: 0 10px 20px 0 rgba(64,64,64,.5);
+}
+
+img {
+    cursor: pointer;
+    filter: invert(24%) sepia(8%) saturate(14%) hue-rotate(315deg) brightness(96%) contrast(92%);
+}
+
+img:hover {
+    filter: invert(40%) sepia(45%) saturate(288%) hue-rotate(147deg) brightness(96%) contrast(89%);
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.houseDetails {
+    position: fixed;
+    top: 20%;
     bottom: 5%;
     left: 0;
     right: 0;
     padding: 20px;
-    background-color: #e5e5e5;
+    background-color: #f0f0f0;
     overflow-y: scroll;
 }
 
+.house {
+    background-color: #404040;
+    color: #f0f0f0;
+    border-radius: 20px;
+    padding: 10px;
+    width: calc(100%-20px);
+}
+
+.houseinfo {
+    display: inline-block;
+    margin: 10px 5px;
+    min-width: 49%;
+}
+
+b {
+    color: #507580;
+}
+
+.notclickablelist {
+    display: inline-flex;
+    min-width: 49%;
+    margin: 5px;
+}
+
+.notclickable {
+    white-space: nowrap;
+    margin: 5px 5px 5px 0;
+}
+
+.notclickableitem {
+    display: inline-flex;
+    padding: 2px;
+    background-color: #f0f0f0;
+    color: #404040;
+    border: 3px solid #404040;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+.clickablelist {
+    display: inline-flex;
+    min-width: 49%;
+    margin: 5px;
+}
+
+.clickable {
+    white-space: nowrap;
+    margin: 5px 5px 5px 0;
+}
+
+.clickableitem {
+    display: inline-flex;
+    padding: 2px;
+    background-color: #f0f0f0;
+    color: #404040;
+    border: 3px solid #507580;
+    border-radius: 10px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.clickableitem:hover {
+    background-color: #507580;
+    color: #f0f0f0;
+    border: 3px solid #f0f0f0;
+}
+
 /*
-black: #252525;
-white: #e5e5e5;
 dark: #404040;
 light: #f0f0f0;
 blue: #507580;

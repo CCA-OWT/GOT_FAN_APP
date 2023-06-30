@@ -14,6 +14,8 @@
     justify-content: space-between;
     background-color: #507580;
     color: #e5e5e5;
+    z-index: 3;
+    box-shadow: 0 10px 20px 0 rgba(80,117,128,.5);
 }
 
 .header span {
@@ -30,12 +32,14 @@
     align-items: center;
     gap: 20px;
     padding-left: 20px;
-    color: #e5e5e5;
+    color: #f0f0f0;
 }
 
-.logo-title:hover {
+.logo-title:focus, .logo-title:hover {
     color: #252525;
     cursor: pointer;
+    outline: none;
+    text-shadow: 0 0 15px #252525;
 }
 
 /*
